@@ -17,6 +17,8 @@ public class Cannon extends Subsystem {
 	WPI_TalonSRX cannonMotor;
 	Solenoid cannonSolenoid;
 	
+	//TODO add functionality for the PigeonIMU to track the angle of the cannon
+
 	/**
 	 * The cannon which launches the t shirt, utilizing a  single solenoid to fire and a motor to adjust the angle
 	 */
