@@ -32,11 +32,13 @@ public class RobotMap {
 	static WPI_TalonSRX cMotor = new WPI_TalonSRX(0);
 	static Solenoid cSolenoid = new Solenoid(0);
 
-
 	public static double cannonUpSpeed = 0.4;
 	public static double cannonDownSpeed = -0.4; 
 
 	public static int fireTime = 1; 
+
+	public static int leftAxis = 1;
+	public static int rightAxis = 5; 
 	
 	// If you are using multiple modules, make sure to define both the port
 	// number and the module. For example you with a rangefinder:

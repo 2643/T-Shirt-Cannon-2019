@@ -13,6 +13,9 @@ import org.usfirst.frc.team2643.robot.RobotMap;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
+/**
+ * Fires the cannon
+ */
 public class Fire extends Command {
   Timer timer = new Timer(); 
 
@@ -38,6 +41,7 @@ public class Fire extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
+    //fires the solenoid for a second and then retracts the solenoid
     if(timer.get() >= RobotMap.fireTime){
       return true;
     }

@@ -11,6 +11,9 @@ import org.usfirst.frc.team2643.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
+/**
+ * Increases the angle of launch of the cannon
+ */
 public class CannonUp extends Command {
   public CannonUp() {
     // Use requires() here to declare subsystem dependencies
