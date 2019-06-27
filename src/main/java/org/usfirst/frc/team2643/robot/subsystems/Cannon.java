@@ -50,7 +50,7 @@ public class Cannon extends Subsystem {
 	 * Stops the cannon and hopefully holds it in place
 	 */
 	public void cannonStop(){
-		cannonMotor.set(0);  //TODO make sure that it holds the cannon in place and the angle of launch does not drop 
+		cannonMotor.set(0);
 	}
 
 	public void fireSolenoid(){
