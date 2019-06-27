@@ -7,6 +7,11 @@
 
 package org.usfirst.frc.team2643.robot;
 
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
+import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.Spark;
+
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -18,19 +23,20 @@ public class RobotMap {
 	// following variables to use with your drivetrain subsystem.
 	// public static int leftMotor = 1;
 	// public static int rightMotor = 2;
-	
-	public static int lFrontMotor = 0;
-	public static int lBackMotor = 1;
-	public static int rFrontMotor = 2;
-	public static int rBackMotor = 3;
+
+	static Spark lFrontMotor = new Spark(2);
+	static Spark lBackMotor = new Spark(3);
+	static Spark rFrontMotor = new Spark(1);
+	static Spark rBackMotor = new Spark(4);
 	  
-	public static int cMotor = 4;
-	 
-	public static int cPot = 0;
-	public static int cSolesnoid = 1;
-	
-	public static int cSoftstopMin = 0;
-	public static int cSoftstopMax = 50;
+	static WPI_TalonSRX cMotor = new WPI_TalonSRX(0);
+	static Solenoid cSolenoid = new Solenoid(0);
+
+
+	public static double cannonUpSpeed = 0.4;
+	public static double cannonDownSpeed = -0.4; 
+
+	public static int fireTime = 1; 
 	
 	// If you are using multiple modules, make sure to define both the port
 	// number and the module. For example you with a rangefinder:

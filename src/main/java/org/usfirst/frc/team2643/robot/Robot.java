@@ -36,13 +36,13 @@ public class Robot extends TimedRobot {
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
 
 	/**
-	 * This function is run when the robot is first started up and should be
-	 * used for any initialization code.
+	 * This function is run when the robot is first started up and should be used
+	 * for any initialization code.
 	 */
 	@Override
 	public void robotInit() {
 		m_oi = new OI();
-		drive = new Drive();
+		drive = new Drive(RobotMap.lFrontMotor, RobotMap.lBackMotor, RobotMap.rFrontMotor, RobotMap.rBackMotor);
 		cannon = new Cannon();
 		// m_chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());

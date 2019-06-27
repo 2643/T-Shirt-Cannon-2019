@@ -7,8 +7,11 @@
 
 package org.usfirst.frc.team2643.robot;
 
+import org.usfirst.frc.team2643.robot.triggers.*;
+import org.usfirst.frc.team2643.robot.commands.*;
+
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.buttons.Button;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -16,21 +19,18 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  */
 public class OI {
 	//creating the joystick
-	Joystick driveStick = new Joystick(0);
+	public Joystick driveStick = new Joystick(0);
 	
-	
+	Button cannonUpButton = new CannonUpTrigger();
+	Button cannonDownButton = new CannonDownTrigger(); 
+	Button cannonFireButton = new ReadyToFire(); 
+
 	public OI() {
-		// creating buttons for use for safety and firing
-		JoystickButton cSafety = new JoystickButton(driveStick, 1);
-		JoystickButton cFire = new JoystickButton(driveStick, 5);
-		
-		//if both of the buttons are pressed, and POV at neutral, fire the cannon
-		//(maybe use a trigger for this next time)
-			
-		if(cSafety.get() == true && cFire.get() == true && getPOV() == -1) {
-			Robot.cannon.cFire();
-		
-		}
+		cannonUpButton.whenActive(new CannonUp());
+		cannonUpButton.whenInactive(new CannonStop());
+		cannonDownButton.whenActive(new CannonDown());
+		cannonDownButton.whenInactive(new CannonStop());
+		cannonFireButton.whenActive(new Fire());
 	}
 	
 	//// CREATING BUTTONS
@@ -62,13 +62,4 @@ public class OI {
 	// Start the command when the button is released and let it run the command
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new EmpleCommand());
-	
-	public Joystick getJoystick() {
-		//returns the joystick when requested
-		return driveStick;
-	}
-	public int getPOV() { 
-		//returns the POV when requested
-		return driveStick.getPOV();
-	}
 }
