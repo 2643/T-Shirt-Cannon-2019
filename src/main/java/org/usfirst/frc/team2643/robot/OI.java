@@ -26,10 +26,9 @@ public class OI {
 	Button cannonFireButton = new ReadyToFire(); 
 
 	public OI() {
+		//TODO test these new button/trigger functions
 		cannonUpButton.whenActive(new CannonUp());
-		cannonUpButton.whenInactive(new CannonStop());
 		cannonDownButton.whenActive(new CannonDown());
-		cannonDownButton.whenInactive(new CannonStop());
 		cannonFireButton.whenActive(new Fire());
 	}
 	
