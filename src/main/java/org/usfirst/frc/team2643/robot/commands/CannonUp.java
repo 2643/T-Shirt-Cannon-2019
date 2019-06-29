@@ -7,7 +7,7 @@
 
 package org.usfirst.frc.team2643.robot.commands;
 
-import org.usfirst.frc.team2643.robot.Robot;
+import org.usfirst.frc.team2643.robot.*;
 
 import edu.wpi.first.wpilibj.command.Command;
 

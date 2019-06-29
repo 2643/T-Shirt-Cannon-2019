@@ -47,8 +47,8 @@ public class Drive extends Subsystem {
     public void driveWithStick(Joystick stick) {
     	lFrontMotor.set(stick.getRawAxis(RobotMap.leftAxis));
     	lBackMotor.set(stick.getRawAxis(RobotMap.leftAxis));
-    	rFrontMotor.set(stick.getRawAxis(RobotMap.rightAxis));
-    	rBackMotor.set(stick.getRawAxis(RobotMap.rightAxis));
+    	rFrontMotor.set(-stick.getRawAxis(RobotMap.rightAxis));
+    	rBackMotor.set(-stick.getRawAxis(RobotMap.rightAxis));
     	
     }
     

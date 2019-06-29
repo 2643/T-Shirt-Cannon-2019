@@ -24,16 +24,16 @@ public class RobotMap {
 	// public static int leftMotor = 1;
 	// public static int rightMotor = 2;
 
-	static Spark lFrontMotor = new Spark(2);
-	static Spark lBackMotor = new Spark(3);
-	static Spark rFrontMotor = new Spark(1);
-	static Spark rBackMotor = new Spark(4);
+	public static Spark lFrontMotor = new Spark(2);
+	public static Spark lBackMotor = new Spark(3);
+	public static Spark rFrontMotor = new Spark(1);
+	public static Spark rBackMotor = new Spark(4);
 	  
 	static WPI_TalonSRX cMotor = new WPI_TalonSRX(0);
 	static Solenoid cSolenoid = new Solenoid(0);
 
-	public static double cannonUpSpeed = 0.4;
-	public static double cannonDownSpeed = -0.4; 
+	public static double cannonUpSpeed = 0.3;
+	public static double cannonDownSpeed = -0.3; 
 
 	public static int fireTime = 1; 
 

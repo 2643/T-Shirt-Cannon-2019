@@ -7,11 +7,11 @@
 
 package org.usfirst.frc.team2643.robot;
 
-import org.usfirst.frc.team2643.robot.triggers.*;
 import org.usfirst.frc.team2643.robot.commands.*;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.command.Scheduler;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -20,16 +20,22 @@ import edu.wpi.first.wpilibj.buttons.Button;
 public class OI {
 	//creating the joystick
 	public Joystick driveStick = new Joystick(0);
-	
-	Button cannonUpButton = new CannonUpTrigger();
-	Button cannonDownButton = new CannonDownTrigger(); 
-	Button cannonFireButton = new ReadyToFire(); 
 
 	public OI() {
-		//TODO test these new button/trigger functions
-		cannonUpButton.whenActive(new CannonUp());
-		cannonDownButton.whenActive(new CannonDown());
-		cannonFireButton.whenActive(new Fire());
+		
+		if(driveStick.getPOV() == 0){
+			Scheduler.getInstance().add(new CannonUp());
+		}else if(driveStick.getPOV() == 180){
+			Scheduler.getInstance().add(new CannonDown());
+		}else{
+			Scheduler.getInstance().add(new CannonStop());
+		}
+
+		if(driveStick.getRawButton(1) && driveStick.getRawButton(5) && driveStick.getPOV() == -1){
+			Scheduler.getInstance().add(new Fire());
+		}
+
+
 	}
 	
 	//// CREATING BUTTONS
