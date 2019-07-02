@@ -3,7 +3,6 @@ package org.usfirst.frc.team2643.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import org.usfirst.frc.team2643.robot.RobotMap;
-import org.usfirst.frc.team2643.robot.commands.*;
 
 import edu.wpi.first.wpilibj.Solenoid;
 

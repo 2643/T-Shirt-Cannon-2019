@@ -8,10 +8,8 @@
 package org.usfirst.frc.team2643.robot;
 
 import org.usfirst.frc.team2643.robot.commands.*;
-
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.buttons.Button;
-import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.buttons.Trigger;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -21,21 +19,14 @@ public class OI {
 	//creating the joystick
 	public Joystick driveStick = new Joystick(0);
 
+	Trigger fireTrigger = new FireTrigger();
+	Trigger upTrigger = new UpTrigger(); 
+	Trigger downTrigger = new DownTrigger();
+
 	public OI() {
-		
-		if(driveStick.getPOV() == 0){
-			Scheduler.getInstance().add(new CannonUp());
-		}else if(driveStick.getPOV() == 180){
-			Scheduler.getInstance().add(new CannonDown());
-		}else{
-			Scheduler.getInstance().add(new CannonStop());
-		}
-
-		if(driveStick.getRawButton(1) && driveStick.getRawButton(5) && driveStick.getPOV() == -1){
-			Scheduler.getInstance().add(new Fire());
-		}
-
-
+		fireTrigger.whenActive(new Fire());
+		upTrigger.whenActive(new CannonUp());
+		downTrigger.whenActive(new CannonDown());
 	}
 	
 	//// CREATING BUTTONS
