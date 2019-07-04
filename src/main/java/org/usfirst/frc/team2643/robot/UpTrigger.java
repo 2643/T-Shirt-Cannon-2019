@@ -17,6 +17,6 @@ import edu.wpi.first.wpilibj.buttons.Trigger;
 public class UpTrigger extends Trigger {
   @Override
   public boolean get() {
-    return Robot.m_oi.driveStick.getPOV() == 0;
+    return RobotMap.driveStick.getPOV() == 0;
   }
 }

@@ -21,6 +21,6 @@ public class DownTrigger extends Trigger {
   
   @Override
   public boolean get() {
-    return Robot.m_oi.driveStick.getPOV() == 180;
+    return RobotMap.driveStick.getPOV() == 180;
   }
 }

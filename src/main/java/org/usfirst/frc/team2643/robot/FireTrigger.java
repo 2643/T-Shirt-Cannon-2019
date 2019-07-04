@@ -21,6 +21,6 @@ public class FireTrigger extends Trigger {
   
   @Override
   public boolean get() {
-    return Robot.m_oi.driveStick.getRawButton(1) && Robot.m_oi.driveStick.getRawButton(5) && Robot.m_oi.driveStick.getPOV() == -1;
+    return RobotMap.driveStick.getRawButton(1) && RobotMap.driveStick.getRawButton(5) && RobotMap.driveStick.getPOV() == -1;
   }
 }

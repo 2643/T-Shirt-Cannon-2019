@@ -1,6 +1,7 @@
 package org.usfirst.frc.team2643.robot.commands;
 
 import org.usfirst.frc.team2643.robot.Robot;
+import org.usfirst.frc.team2643.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -24,7 +25,7 @@ public class TankDrive extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	// Runs code in Robot.java
-    	Robot.drive.driveWithStick(Robot.m_oi.driveStick);
+    	Robot.drive.driveWithStick(RobotMap.driveStick);
     }
 
     // Make this return true when this Command no longer needs to run execute()

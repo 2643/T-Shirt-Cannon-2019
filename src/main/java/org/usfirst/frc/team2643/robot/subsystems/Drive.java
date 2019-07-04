@@ -45,10 +45,10 @@ public class Drive extends Subsystem {
 	 * @param stick (Joystick) the driver joystick used to control the drivetrain
 	 */
     public void driveWithStick(Joystick stick) {
-    	lFrontMotor.set(stick.getRawAxis(RobotMap.leftAxis));
-    	lBackMotor.set(stick.getRawAxis(RobotMap.leftAxis));
-    	rFrontMotor.set(-stick.getRawAxis(RobotMap.rightAxis));
-    	rBackMotor.set(-stick.getRawAxis(RobotMap.rightAxis));
+    	lFrontMotor.set(-stick.getRawAxis(RobotMap.leftAxis));
+    	lBackMotor.set(-stick.getRawAxis(RobotMap.leftAxis));
+    	rFrontMotor.set(stick.getRawAxis(RobotMap.rightAxis));
+    	rBackMotor.set(stick.getRawAxis(RobotMap.rightAxis));
     	
     }
     

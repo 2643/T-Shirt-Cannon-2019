@@ -1,8 +1,10 @@
 package org.usfirst.frc.team2643.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.sensors.PigeonIMU;
 
 import org.usfirst.frc.team2643.robot.RobotMap;
+import org.usfirst.frc.team2643.robot.commands.CannonStop;
 
 import edu.wpi.first.wpilibj.Solenoid;
 
@@ -24,11 +26,12 @@ public class Cannon extends Subsystem {
 	public Cannon(WPI_TalonSRX motorForCannon, Solenoid solenoidForCannon){
 		cannonMotor = motorForCannon; 
 		solenoidForCannon = cannonSolenoid; 
+
 	}
 
     public void initDefaultCommand() {
 		// Set the default command for a subsystem here.
-		//setDefaultCommand(new CannonStop());
+		setDefaultCommand(new CannonStop());
     }
 	
 	/**
