@@ -7,8 +7,6 @@
 
 package org.usfirst.frc.team2643.robot;
 
-import org.usfirst.frc.team2643.robot.Robot;
-
 import edu.wpi.first.wpilibj.buttons.Trigger;
 
 /**

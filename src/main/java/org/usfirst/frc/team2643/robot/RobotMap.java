@@ -8,7 +8,6 @@
 package org.usfirst.frc.team2643.robot;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-import com.ctre.phoenix.sensors.PigeonIMU;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Solenoid;
@@ -31,8 +30,8 @@ public class RobotMap {
 	public static Spark rFrontMotor = new Spark(1);
 	public static Spark rBackMotor = new Spark(4);
 	  
-	static WPI_TalonSRX cMotor = new WPI_TalonSRX(0);
-	static Solenoid cSolenoid = new Solenoid(0);
+	static WPI_TalonSRX cMotor = new WPI_TalonSRX(2);
+	public static Solenoid cSolenoid = new Solenoid(0);
 
 	
 	public static double cannonUpSpeed = 0.3;

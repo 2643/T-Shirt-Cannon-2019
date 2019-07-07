@@ -1,7 +1,6 @@
 package org.usfirst.frc.team2643.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-import com.ctre.phoenix.sensors.PigeonIMU;
 
 import org.usfirst.frc.team2643.robot.RobotMap;
 import org.usfirst.frc.team2643.robot.commands.CannonStop;
@@ -16,16 +15,14 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Cannon extends Subsystem {
 	WPI_TalonSRX cannonMotor;
-	Solenoid cannonSolenoid;
 	
 	//TODO add functionality for the PigeonIMU to track the angle of the cannon
 
 	/**
 	 * The cannon which launches the t shirt, utilizing a  single solenoid to fire and a motor to adjust the angle
 	 */
-	public Cannon(WPI_TalonSRX motorForCannon, Solenoid solenoidForCannon){
+	public Cannon(WPI_TalonSRX motorForCannon){
 		cannonMotor = motorForCannon; 
-		solenoidForCannon = cannonSolenoid; 
 
 	}
 
@@ -56,11 +53,11 @@ public class Cannon extends Subsystem {
 	}
 
 	public void fireSolenoid(){
-		cannonSolenoid.set(true);
+		RobotMap.cSolenoid.set(true);
 	}
 
 	public void disengageSolenoid(){
-		cannonSolenoid.set(false);
+		RobotMap.cSolenoid.set(false);
 	}
 }
 
