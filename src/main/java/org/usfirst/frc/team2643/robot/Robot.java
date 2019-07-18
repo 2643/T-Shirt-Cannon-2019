@@ -122,6 +122,6 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void testPeriodic() {
-		
+		//TODO find potentiometer values and direction
 	}
 }

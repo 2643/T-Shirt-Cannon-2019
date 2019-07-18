@@ -48,10 +48,33 @@ public class Drive extends Subsystem {
     	lFrontMotor.set(-stick.getRawAxis(RobotMap.leftAxis));
     	lBackMotor.set(-stick.getRawAxis(RobotMap.leftAxis));
     	rFrontMotor.set(stick.getRawAxis(RobotMap.rightAxis));
-    	rBackMotor.set(stick.getRawAxis(RobotMap.rightAxis));
-    	
+    	rBackMotor.set(stick.getRawAxis(RobotMap.rightAxis));	
     }
-    
+	
+	/**
+	 * Set the motors to go forward/backward at a set speed between -1 and 1
+	 * @param speed int between -1 and 1
+	 */
+	public void setSpeed(double speed){
+		lFrontMotor.set(-speed);
+		lBackMotor.set(-speed);
+		rFrontMotor.set(speed);
+		rBackMotor.set(speed);
+	}
+
+	/**
+	 * Move the robot forward at the auto drive speed specified in RobotMap
+	 */
+	public void moveForward(){
+		setSpeed(RobotMap.autoDriveSpeed);
+	}
+
+	/**
+	 * Move the robot backward at the auto drive speed specified in RobotMap
+	 */
+	public void moveBackward(){
+		setSpeed(-RobotMap.autoDriveSpeed);
+	}
     
     
 }
