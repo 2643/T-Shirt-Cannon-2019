@@ -17,9 +17,9 @@ import edu.wpi.first.wpilibj.buttons.Trigger;
 public class OI {
 	//creating the joystick
 
-	Trigger fireTrigger = new FireTrigger();
-	Trigger upTrigger = new UpTrigger(); 
-	Trigger downTrigger = new DownTrigger();
+	public Trigger fireTrigger = new FireTrigger();
+	public Trigger upTrigger = new UpTrigger(); 
+	public Trigger downTrigger = new DownTrigger();
 
 	public OI() {
 		fireTrigger.whenActive(new Fire());

@@ -8,6 +8,7 @@
 package org.usfirst.frc.team2643.robot.commands;
 
 import org.usfirst.frc.team2643.robot.Robot;
+import org.usfirst.frc.team2643.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -35,6 +36,8 @@ public class CannonDown extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
+    if((RobotMap.cannonPot.get() >= RobotMap.cannonLowerLimit) && Robot.m_oi.downTrigger.get())
+      return true;  
     return false;
   }
 

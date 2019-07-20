@@ -42,8 +42,8 @@ public class RobotMap {
 	public static double cannonUpSpeed = 0.3;
 	public static double cannonDownSpeed = -0.3; 
 
-	public static double cannonUpperLimit = 247; //barrel up
-	public static double cannonLowerLimit = 237; //barrel down 
+	public static double cannonUpperLimit = 236; //barrel up
+	public static double cannonLowerLimit = 247; //barrel down 
 
 	public static double autoDriveSpeed = 0.4;
 	public static int fireTime = 1; 
