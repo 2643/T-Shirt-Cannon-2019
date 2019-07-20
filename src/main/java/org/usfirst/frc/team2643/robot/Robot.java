@@ -115,6 +115,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		System.out.println(RobotMap.cannonPot.get());
 	}
 
 	/**
@@ -122,6 +123,6 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void testPeriodic() {
-		//TODO find potentiometer values and direction
+
 	}
 }

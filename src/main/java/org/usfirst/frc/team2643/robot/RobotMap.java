@@ -35,14 +35,16 @@ public class RobotMap {
 	static WPI_TalonSRX cMotor = new WPI_TalonSRX(2);
 	public static Solenoid cSolenoid = new Solenoid(0);
 
-	public static Potentiometer cannonPot = new AnalogPotentiometer(0, 360, 30);
+	//turning towards the front decreases the value of the pot
+	//turning towards the back increases teh value of the pot 
+	public static Potentiometer cannonPot = new AnalogPotentiometer(0, 360 , 30);
 	
 	public static double cannonUpSpeed = 0.3;
 	public static double cannonDownSpeed = -0.3; 
 
-	public static double cannonUpperLimit = 0; //TODO Find upper limit of potentiometer on cannon
-	public static double cannonLowerLimit = 0; //TODO Find lower limit of potentiometer on cannon
-	
+	public static double cannonUpperLimit = 247; //barrel up
+	public static double cannonLowerLimit = 237; //barrel down 
+
 	public static double autoDriveSpeed = 0.4;
 	public static int fireTime = 1; 
 
