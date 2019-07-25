@@ -7,18 +7,18 @@
 
 package org.usfirst.frc.team2643.robot.commands;
 
-import org.usfirst.frc.team2643.robot.*;
+import org.usfirst.frc.team2643.robot.Robot;
+import org.usfirst.frc.team2643.robot.RobotMap;
 
+import edu.wpi.first.wpilibj.Relay.Value;
 import edu.wpi.first.wpilibj.command.Command;
 
-/**
- * Increases the angle of launch of the cannon
- */
-public class CannonUp extends Command {
-  public CannonUp() {
+public class Compressing extends Command {
+
+  public Compressing() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.cannonPositioner);
+    requires(Robot.cannon);
   }
 
   // Called just before this Command runs the first time
@@ -29,27 +29,26 @@ public class CannonUp extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.cannonPositioner.cannonUp();
+    RobotMap.relay.set(Value.kForward);
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    if((RobotMap.cannonPot.get() <= RobotMap.cannonUpperLimit) && Robot.m_oi.upTrigger.get())
-      return true;
-    return false;
+    System.out.println(Robot.cannon.low());
+    return Robot.cannon.low();
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.cannonPositioner.cannonStop();
+    RobotMap.relay.set(Value.kOff);
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    end();
+    
   }
 }

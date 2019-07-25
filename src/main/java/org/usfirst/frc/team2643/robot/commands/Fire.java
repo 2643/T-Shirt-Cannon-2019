@@ -18,6 +18,7 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class Fire extends Command {
   Timer timer = new Timer(); 
+  boolean finished = false; 
 
   public Fire() {
     // Use requires() here to declare subsystem dependencies
@@ -28,6 +29,9 @@ public class Fire extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    if(Robot.cannon.low()){
+      finished = true; 
+    }
     timer.reset(); 
     timer.start(); 
   }
@@ -43,15 +47,17 @@ public class Fire extends Command {
   protected boolean isFinished() {
     //fires the solenoid for a second and then retracts the solenoid
     if(timer.get() >= RobotMap.fireTime){
-      return true;
+      finished = true; 
     }
-    return false;
+
+    return finished; 
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
     Robot.cannon.disengageSolenoid();
+    finished = false; 
   }
 
   // Called when another command which requires one or more of the same

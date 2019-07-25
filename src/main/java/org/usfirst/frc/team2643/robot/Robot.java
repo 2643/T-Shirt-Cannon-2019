@@ -9,6 +9,7 @@
 package org.usfirst.frc.team2643.robot;
 
 import org.usfirst.frc.team2643.robot.subsystems.Cannon;
+import org.usfirst.frc.team2643.robot.subsystems.CannonPositioner;
 import org.usfirst.frc.team2643.robot.subsystems.Drive;
 
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -29,7 +30,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends TimedRobot {
 	// public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
 	public static Drive drive =  new Drive(RobotMap.lFrontMotor, RobotMap.lBackMotor, RobotMap.rFrontMotor, RobotMap.rBackMotor);
-	public static Cannon cannon = new Cannon(RobotMap.cMotor);
+	public static Cannon cannon = new Cannon();
+	public static CannonPositioner cannonPositioner = new CannonPositioner(RobotMap.cMotor);
 	public static OI m_oi;
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -115,7 +117,6 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		System.out.println(RobotMap.cannonPot.get());
 	}
 
 	/**

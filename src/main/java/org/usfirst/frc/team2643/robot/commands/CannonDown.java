@@ -19,7 +19,7 @@ public class CannonDown extends Command {
   public CannonDown() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.cannon);
+    requires(Robot.cannonPositioner);
   }
 
   // Called just before this Command runs the first time
@@ -30,7 +30,7 @@ public class CannonDown extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.cannon.cannonDown(); 
+    Robot.cannonPositioner.cannonDown(); 
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -44,7 +44,7 @@ public class CannonDown extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.cannon.cannonStop();
+    Robot.cannonPositioner.cannonStop();
   }
 
   // Called when another command which requires one or more of the same

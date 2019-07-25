@@ -1,55 +1,38 @@
+/*----------------------------------------------------------------------------*/
+/* Copyright (c) 2018 FIRST. All Rights Reserved.                             */
+/* Open Source Software - may be modified and shared by FRC teams. The code   */
+/* must be accompanied by the FIRST BSD license file in the root directory of */
+/* the project.                                                               */
+/*----------------------------------------------------------------------------*/
+
 package org.usfirst.frc.team2643.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-
+import org.usfirst.frc.team2643.robot.Robot;
 import org.usfirst.frc.team2643.robot.RobotMap;
-import org.usfirst.frc.team2643.robot.commands.CannonStop;
+import org.usfirst.frc.team2643.robot.commands.Compressing;
 
+import edu.wpi.first.wpilibj.Relay.Direction;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-
 /**
- * The subsystem that launches the t shirt at various angles
- */
+ * Add your docs here.
+ */		
 public class Cannon extends Subsystem {
-	WPI_TalonSRX cannonMotor;
+  // Put methods for controlling this subsystem
+  // here. Call these from Commands.
 
-	/**
-	 * The cannon which launches the t shirt, utilizing a  single solenoid to fire and a motor to adjust the angle
-	 */
-	public Cannon(WPI_TalonSRX motorForCannon){
-		cannonMotor = motorForCannon; 
+  public Cannon(){
+    RobotMap.relay.setDirection(Direction.kForward);
+  }
 
-	}
+  @Override
+  public void initDefaultCommand() {
+    // Set the default command for a subsystem here.
+    // setDefaultCommand(new MySpecialCommand());
+    setDefaultCommand(new Compressing());
+  }
 
-    public void initDefaultCommand() {
-		// Set the default command for a subsystem here.
-		setDefaultCommand(new CannonStop());
-    }
-	
-	/**
-	 * Makes the angle of launch of the cannon higher
-	 */
-    public void cannonUp(){
-		cannonMotor.set(RobotMap.cannonUpSpeed);
-	}
-	
-	/**
-	 * Makes the angle of launch of the cannon lower
-	 */
-	public void cannonDown(){
-		cannonMotor.set(RobotMap.cannonDownSpeed);
-	}
-
-	
-	/**
-	 * Stops the cannon and hopefully holds it in place
-	 */
-	public void cannonStop(){
-		cannonMotor.set(0);
-	}
-
-	/**
+  /**
 	 * Fires the solenoid
 	 */
 	public void fireSolenoid(){
@@ -61,14 +44,17 @@ public class Cannon extends Subsystem {
 	 */
 	public void disengageSolenoid(){
 		RobotMap.cSolenoid.set(false);
-	}
+  }
+  
 
 	/**
-	 * Returns the value of the potentiometer on the cannon
+	 * checks if the compressor is low
+	 * @return boolean true if NOT low on pressure
+	 * THE DOCUMENTATION IS CRAP
 	 */
-	public double getPotentiometer(){
-		return RobotMap.cannonPot.get(); 
+	public boolean low(){
+		if(RobotMap.compressor.getPressureSwitchValue())
+			return true; 
+		return false; 
 	}
-
 }
-

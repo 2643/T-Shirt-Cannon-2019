@@ -20,14 +20,15 @@ public class CannonTo extends Command {
   public CannonTo(double position) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.cannon);
+    requires(Robot.cannonPositioner);
     cannonPosition = position; 
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    if(Robot.cannon.getPotentiometer() == RobotMap.cannonUpperLimit || Robot.cannon.getPotentiometer() == RobotMap.cannonLowerLimit){
+    if(Robot.cannonPositioner.getPotentiometer() == RobotMap.cannonUpperLimit
+        || Robot.cannonPositioner.getPotentiometer() == RobotMap.cannonLowerLimit) {
       isFinished = true; 
     }
     isFinished = false; 
@@ -36,17 +37,17 @@ public class CannonTo extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if(Robot.cannon.getPotentiometer() < cannonPosition){
-      Robot.cannon.cannonUp();
-    }else if(Robot.cannon.getPotentiometer() > cannonPosition){
-      Robot.cannon.cannonDown(); 
+    if(Robot.cannonPositioner.getPotentiometer() < cannonPosition){
+      Robot.cannonPositioner.cannonUp();
+    }else if(Robot.cannonPositioner.getPotentiometer() > cannonPosition) {
+      Robot.cannonPositioner.cannonDown(); 
     }
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    if(Robot.cannon.getPotentiometer() == cannonPosition || Robot.cannon.getPotentiometer() == RobotMap.cannonUpperLimit || Robot.cannon.getPotentiometer() == RobotMap.cannonLowerLimit){
+    if(Robot.cannonPositioner.getPotentiometer() == cannonPosition || Robot.cannonPositioner.getPotentiometer() == RobotMap.cannonUpperLimit || Robot.cannonPositioner.getPotentiometer() == RobotMap.cannonLowerLimit){
       isFinished = true; 
     }else{
       isFinished = false; 
@@ -57,7 +58,7 @@ public class CannonTo extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.cannon.cannonStop(); 
+    Robot.cannonPositioner.cannonStop();
   }
 
   // Called when another command which requires one or more of the same

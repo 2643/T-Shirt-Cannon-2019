@@ -10,7 +10,9 @@ package org.usfirst.frc.team2643.robot;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.interfaces.Potentiometer;
@@ -35,6 +37,9 @@ public class RobotMap {
 	static WPI_TalonSRX cMotor = new WPI_TalonSRX(2);
 	public static Solenoid cSolenoid = new Solenoid(0);
 
+	public static Relay relay = new Relay(0);
+	public static Compressor compressor = new Compressor();
+
 	//turning towards the front decreases the value of the pot
 	//turning towards the back increases teh value of the pot 
 	public static Potentiometer cannonPot = new AnalogPotentiometer(0, 360 , 30);
@@ -42,8 +47,10 @@ public class RobotMap {
 	public static double cannonUpSpeed = 0.3;
 	public static double cannonDownSpeed = -0.3; 
 
-	public static double cannonUpperLimit = 236; //barrel up
-	public static double cannonLowerLimit = 247; //barrel down 
+	public static double cannonUpperLimit = 237; //shooting down
+	public static double cannonLowerLimit = 247; //shooting up //247 with inertia ended up hitting the tank
+
+	public static boolean lowPressure = false;
 
 	public static double autoDriveSpeed = 0.4;
 	public static int fireTime = 1; 
