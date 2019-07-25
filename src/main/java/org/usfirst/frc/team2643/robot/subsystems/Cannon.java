@@ -50,7 +50,7 @@ public class Cannon extends Subsystem {
 	/**
 	 * checks if the compressor is low
 	 * @return boolean true if NOT low on pressure
-	 * THE DOCUMENTATION IS CRAP
+	 * THE DOCUMENTATION IS CRAP (FROM WPILIB)
 	 */
 	public boolean low(){
 		if(RobotMap.compressor.getPressureSwitchValue())
