@@ -29,7 +29,7 @@ public class Fire extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    if(Robot.cannon.low()){
+    if(!Robot.cannon.fullyPressurized()){
       finished = true; 
     }
     timer.reset(); 

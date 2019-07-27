@@ -35,8 +35,7 @@ public class Compressing extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    System.out.println(Robot.cannon.low());
-    return Robot.cannon.low();
+    return Robot.cannon.fullyPressurized();
   }
 
   // Called once after isFinished returns true

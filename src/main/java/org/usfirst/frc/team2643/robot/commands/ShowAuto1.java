@@ -14,7 +14,10 @@ public class ShowAuto1 extends CommandGroup {
    * Add your docs here.
    */
   public ShowAuto1() {
-
+    addSequential(new CannonTo(245));
+    addSequential(new Fire());
+    //addSequential(new Fire());
+    
     // Add Commands here:
     // e.g. addSequential(new Command1());
     // addSequential(new Command2());

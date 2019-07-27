@@ -8,6 +8,8 @@
 package org.usfirst.frc.team2643.robot;
 
 import org.usfirst.frc.team2643.robot.commands.*;
+
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.buttons.Trigger;
 
 /**
@@ -21,6 +23,9 @@ public class OI {
 	public Trigger upTrigger = new UpTrigger(); 
 	public Trigger downTrigger = new DownTrigger();
 
+	public JoystickButton autoStart = new JoystickButton(RobotMap.driveStick, 2);
+	public JoystickButton autoKill = new JoystickButton(RobotMap.driveStick, 3);
+
 	public OI() {
 		fireTrigger.whenActive(new Fire());
 		fireTrigger.whenInactive(new Waiting());
@@ -28,6 +33,9 @@ public class OI {
 		upTrigger.whenInactive(new CannonStop());
 		downTrigger.whenActive(new CannonDown());
 		downTrigger.whenInactive(new CannonStop());
+
+		autoStart.whenPressed(new ShowAuto1());
+		autoKill.cancelWhenPressed(new ShowAuto1());
 	}
 	
 	//// CREATING BUTTONS

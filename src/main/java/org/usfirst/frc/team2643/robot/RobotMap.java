@@ -29,6 +29,7 @@ public class RobotMap {
 	// public static int leftMotor = 1;
 	// public static int rightMotor = 2;
 
+	public static final String cannonPositioner = null;
 	public static Spark lFrontMotor = new Spark(2);
 	public static Spark lBackMotor = new Spark(3);
 	public static Spark rFrontMotor = new Spark(1);

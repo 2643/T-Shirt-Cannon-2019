@@ -16,7 +16,6 @@ public class CannonTo extends Command {
   boolean isFinished = false; 
   double cannonPosition; 
   
-  //TODO test CannonTo after potentiometer values and directions are determined
   public CannonTo(double position) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
@@ -27,9 +26,9 @@ public class CannonTo extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    if(Robot.cannonPositioner.getPotentiometer() == RobotMap.cannonUpperLimit
-        || Robot.cannonPositioner.getPotentiometer() == RobotMap.cannonLowerLimit) {
-      isFinished = true; 
+    if(Robot.cannonPositioner.getPotentiometer() >= RobotMap.cannonLowerLimit
+        || Robot.cannonPositioner.getPotentiometer() <= RobotMap.cannonUpperLimit) {
+      isFinished = true;
     }
     isFinished = false; 
   }
@@ -37,9 +36,9 @@ public class CannonTo extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if(Robot.cannonPositioner.getPotentiometer() < cannonPosition){
+    if(Robot.cannonPositioner.getPotentiometer() > cannonPosition){
       Robot.cannonPositioner.cannonUp();
-    }else if(Robot.cannonPositioner.getPotentiometer() > cannonPosition) {
+    }else if(Robot.cannonPositioner.getPotentiometer() < cannonPosition) {
       Robot.cannonPositioner.cannonDown(); 
     }
   }
@@ -47,7 +46,9 @@ public class CannonTo extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    if(Robot.cannonPositioner.getPotentiometer() == cannonPosition || Robot.cannonPositioner.getPotentiometer() == RobotMap.cannonUpperLimit || Robot.cannonPositioner.getPotentiometer() == RobotMap.cannonLowerLimit){
+    if(Robot.cannonPositioner.getPotentiometer() > (cannonPosition - 1) && Robot.cannonPositioner.getPotentiometer() < (cannonPosition + 1)){
+      isFinished = true; 
+    }else if(Robot.cannonPositioner.getPotentiometer() == RobotMap.cannonUpperLimit || Robot.cannonPositioner.getPotentiometer() == RobotMap.cannonLowerLimit){
       isFinished = true; 
     }else{
       isFinished = false; 
