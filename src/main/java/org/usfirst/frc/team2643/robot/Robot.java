@@ -47,6 +47,12 @@ public class Robot extends TimedRobot {
 		// m_chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
+
+		System.out.println("Notes from Sanjana:");
+		System.out.println("The compressor will keep compressing until the pressure is at 120 psi");
+		System.out.println("but can be interrupted to fire the cannon"); 
+		System.out.println("OPERATOR CHECK IF THE PRESSURE IS ABOVE WORKING PSI TO FIRE CANNON");
+		System.out.println("I DON'T KNOW WHAT WILL HAPPEN OTHERWISE");
 	}
 
 	/**

@@ -29,9 +29,11 @@ public class Fire extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    if(!Robot.cannon.fullyPressurized()){
-      finished = true; 
-    }
+    /* This piece of code makes sure that you can only fire when fully pressurized to 120 psi */
+    
+    // if(!Robot.cannon.fullyPressurized()){
+    //   finished = true; 
+    // }
     timer.reset(); 
     timer.start(); 
   }

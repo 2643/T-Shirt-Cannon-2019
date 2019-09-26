@@ -48,6 +48,15 @@ public class Compressing extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+    end(); 
     
+    /* 
+     * Sanjana: 
+     *    The compressor will keep compressing until the pressure is at 120 psi,
+     *    but can be interrupted to fire the cannon
+     *    OPERATOR CHECK IF THE PRESSURE IS ABOVE WORKING PSI
+     *    I DON'T KNOW WHAT WILL HAPPEN OTHERWISE
+     */
+
   }
 }
