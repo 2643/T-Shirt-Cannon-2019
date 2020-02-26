@@ -7,7 +7,6 @@
 
 package org.usfirst.frc.team2643.robot.subsystems;
 
-import org.usfirst.frc.team2643.robot.Robot;
 import org.usfirst.frc.team2643.robot.RobotMap;
 import org.usfirst.frc.team2643.robot.commands.Compressing;
 

@@ -34,14 +34,11 @@ public class Drive extends Subsystem {
 	}
 
     public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
     	setDefaultCommand(new TankDrive());
     }
 	
 	/**
-	 * Allows the robot to be controlled through a joystick with the
-	 * 	 left joystick on the gamepad controlling the left side of the drivetrain and
-	 * 	 the right joystick on the gamepad controlling the right side of the drivetrain
+	 * Allows the robot to be controlled through a joystick with tank drive
 	 * @param stick (Joystick) the driver joystick used to control the drivetrain
 	 */
     public void driveWithStick(Joystick stick) {
