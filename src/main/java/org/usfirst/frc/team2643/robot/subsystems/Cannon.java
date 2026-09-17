@@ -22,15 +22,8 @@ public class Cannon extends SubsystemBase {
 
   public Cannon(){
     RobotMap.relay.setDirection(Direction.kForward);
+	setDefaultCommand(new Compressing());
   }
-
-  @Override
-  public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
-    setDefaultCommand(new Compressing());
-  }
-
   /**
 	 * Fires the solenoid
 	 */
@@ -45,7 +38,6 @@ public class Cannon extends SubsystemBase {
 		RobotMap.cSolenoid.set(false);
   }
   
-
 	/**
 	 * checks if the compressor is low
 	 * @return boolean true if fully pressurized
