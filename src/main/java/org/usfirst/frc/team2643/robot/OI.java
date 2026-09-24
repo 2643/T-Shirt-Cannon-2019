@@ -10,25 +10,18 @@ package org.usfirst.frc.team2643.robot;
 import org.usfirst.frc.team2643.robot.commands.*;
 
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-import edu.wpi.first.wpilibj.Joystick;
-
-import edu.wpi.first.wpilibj2.command.button.Trigger;
-import edu.wpi.first.wpilibj2.command.InstantCommand;
-import edu.wpi.first.wpilibj2.command.Command;
 
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-	//creating the joystick
-
-	public final static FireTrigger fireTrigger = new FireTrigger();
-	public final static UpTrigger upTrigger = new UpTrigger(); 
-	public final static DownTrigger downTrigger = new DownTrigger();
-
 	public JoystickButton autoStart = new JoystickButton(RobotMap.driveStick, 2);
 	public JoystickButton autoKill = new JoystickButton(RobotMap.driveStick, 3);
+
+	public JoystickButton fireTrigger = new JoystickButton(RobotMap.driveStick, 1);
+	public JoystickButton upTrigger = new JoystickButton(RobotMap.driveStick, 2);
+	public JoystickButton downTrigger = new JoystickButton(RobotMap.driveStick, 3);
 	
 	public OI() {
 		configureBindings();
@@ -37,13 +30,13 @@ public class OI {
 	private void configureBindings() {
 		fireTrigger.onTrue(new Fire());
 		fireTrigger.onFalse(new Waiting());
-		upTrigger.whenActive(new CannonUp());
-		upTrigger.whenInactive(new CannonStop());
-		downTrigger.whenActive(new CannonDown());
-		downTrigger.whenInactive(new CannonStop());
+		upTrigger.onTrue(new CannonUp());
+		upTrigger.onFalse(new CannonStop());
+		downTrigger.onTrue(new CannonDown());
+		downTrigger.onFalse(new CannonStop());
 
-		autoStart.whenPressed(new ShowAuto1());
-		autoKill.cancelWhenPressed(new ShowAuto1());
+		autoStart.onTrue(new ShowAuto1());
+		autoKill.onFalse(new ShowAuto1());
 	}
 	
 	//// CREATING BUTTONS

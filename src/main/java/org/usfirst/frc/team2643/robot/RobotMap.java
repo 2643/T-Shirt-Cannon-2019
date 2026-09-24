@@ -36,10 +36,12 @@ public class RobotMap {
 	public static Spark rBackMotor = new Spark(4);
 	  
 	static WPI_TalonSRX cMotor = new WPI_TalonSRX(2);
-	public static Solenoid cSolenoid = new Solenoid(0);
+	// Ishva: Check moduleType later
+	public static Solenoid cSolenoid = new Solenoid(null, 0);
 
 	public static Relay relay = new Relay(0);
-	public static Compressor compressor = new Compressor();
+	// Ishva: Check moduleType later
+	public static Compressor compressor = new Compressor(null);
 
 	//turning towards the front decreases the value of the pot
 	//turning towards the back increases teh value of the pot 
