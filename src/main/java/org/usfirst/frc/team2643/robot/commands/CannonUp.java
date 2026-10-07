@@ -35,7 +35,7 @@ public class CannonUp extends CommandBase {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   public boolean isFinished() {
-    if((RobotMap.cannonPot.get() <= RobotMap.cannonUpperLimit) && Robot.m_oi.upTrigger.get())
+    if((RobotMap.cannonPot.get() <= RobotMap.cannonUpperLimit)) //  && Robot.m_oi.upTrigger.get()
       return true;
     return false;
   }

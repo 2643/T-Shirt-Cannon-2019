@@ -29,7 +29,6 @@ public class OI {
 
 	private void configureBindings() {
 		fireTrigger.onTrue(new Fire());
-		fireTrigger.onFalse(new Waiting());
 		upTrigger.onTrue(new CannonUp());
 		upTrigger.onFalse(new CannonStop());
 		downTrigger.onTrue(new CannonDown());

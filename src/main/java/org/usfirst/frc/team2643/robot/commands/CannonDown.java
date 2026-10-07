@@ -36,7 +36,7 @@ public class CannonDown extends CommandBase{
   // Make this return true when this Command no longer needs to run execute()
   @Override
   public boolean isFinished() {
-    if((RobotMap.cannonPot.get() >= RobotMap.cannonLowerLimit) && Robot.m_oi.downTrigger.get())
+    if((RobotMap.cannonPot.get() >= RobotMap.cannonLowerLimit))  //  && Robot.m_oi.downTrigger.get()
       return true;  
     return false;
   }
